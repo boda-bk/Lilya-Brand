@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Great+Vibes&family=Tajawal:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 <style>
 :root {
   --blush:      #F2C4CE;
@@ -499,15 +500,14 @@ body {
   </div>
   <div class="hero-icons">
     <span class="float-icon">🌸</span>
-        <span class="float-icon">🌸</span>
+    <span class="float-icon">🌸</span>
     <span class="float-icon">🌸</span>
     <span class="float-icon delay1">💍</span>
-  <span class="float-icon delay2">💍</span>
+    <span class="float-icon delay2">💍</span>
     <span class="float-icon delay3">💍</span>
     <span class="float-icon delay4">🌹</span>
-        <span class="float-icon delay5">🌹</span>
+    <span class="float-icon delay5">🌹</span>
     <span class="float-icon delay6">🌹</span>
-
   </div>
   <div class="hero-divider">
     <svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="var(--beige)"/></svg>
@@ -519,19 +519,19 @@ body {
     <h2 class="section-title">تصفحي الأقسام</h2>
     <div class="gold-line"></div>
     <div class="categories-grid">
-      <div class="cat-card" data-filter="bouquets">
+      <div class="cat-card" data-cat="bouquets">
         <div class="cat-icon">💐</div>
         <h3>باقات الزهور</h3>
         <p>باقات مصممة خصيصاً من أجمل الزهور الستان والصناعية الفاخرة</p>
         <a href="#shop" class="btn-outline" data-cat="bouquets">استعرضي</a>
       </div>
-      <div class="cat-card featured" data-filter="trays">
+      <div class="cat-card featured" data-cat="trays">
         <div class="cat-icon">✨</div>
         <h3>صواني عرض الخاتم</h3>
         <p>صواني فاخرة مزخرفة بالإكسسوارات لحظة التقديم</p>
         <a href="#shop" class="btn-outline" data-cat="trays">استعرضي</a>
       </div>
-      <div class="cat-card" data-filter="accessories">
+      <div class="cat-card" data-cat="accessories">
         <div class="cat-icon">👑</div>
         <h3>إكسسوارات العروس</h3>
         <p>مرايات قراية الفاتحه</p>
@@ -584,26 +584,26 @@ body {
     <h2 class="section-title">تواصلي معنا</h2>
     <div class="gold-line"></div>
     <p class="contact-subtitle">هل لديك سؤال أو تريدين طلب مخصص ؟</p>
-<div class="social-links" id="socialLinks">
-    <a href="https://www.facebook.com/YOUR_USERNAME" target="_blank" class="social-icon">
-        <i class="fab fa-facebook-f"></i> فيسبوك
-    </a>
-    <a href="https://www.instagram.com/YOUR_USERNAME" target="_blank" class="social-icon">
-        <i class="fab fa-instagram"></i> إنستغرام
-    </a>
-    <a href="https://wa.me/+201110489055" target="_blank" class="social-icon">
-        <i class="fab fa-whatsapp"></i> واتساب
-    </a>
-</div>
+    <div class="social-links" id="socialLinks">
+        <a href="https://www.facebook.com/YOUR_USERNAME" id="fbLinkElement" target="_blank" class="social-link">
+            <i class="fab fa-facebook-f social-icon"></i> فيسبوك
+        </a>
+        <a href="https://www.instagram.com/YOUR_USERNAME" id="igLinkElement" target="_blank" class="social-link">
+            <i class="fab fa-instagram social-icon"></i> إنستغرام
+        </a>
+        <a href="https://wa.me/+201110489055" id="waLinkElement" target="_blank" class="social-link">
+            <i class="fab fa-whatsapp social-icon"></i> واتساب
+        </a>
+    </div>
+  </div>
 </section>
 
 <footer class="footer">
   <div class="footer-logo">Lilya Brand</div>
-  <p>© 2025 Lilya Brand · جميع الحقوق محفوظة 🌸</p>
+  <p>© 2026 Lilya Brand · جميع الحقوق محفوظة 🌸</p>
   <button class="admin-btn" id="openAdmin">⚙️</button>
 </footer>
 
-<!-- Product Modal -->
 <div class="modal-overlay" id="productModal">
   <div class="modal-content">
     <button class="modal-close" id="modalClose">✕</button>
@@ -614,7 +614,6 @@ body {
   </div>
 </div>
 
-<!-- Admin Panel -->
 <div class="admin-overlay" id="adminOverlay">
   <div class="admin-panel">
     <button class="modal-close" id="closeAdmin">✕</button>
@@ -656,7 +655,7 @@ body {
       <div class="admin-tab-content" id="tab-contact">
         <h3 class="admin-section-title">بيانات التواصل</h3>
         <label class="admin-label">رقم الواتساب (بدون + أو صفر)</label>
-        <input type="text" id="waNumber" class="admin-input" placeholder="مثال: 201001234567"/>
+        <input type="text" id="waNumber" class="admin-input" placeholder="مثال: 201110489055"/>
         <label class="admin-label">رابط الفيسبوك</label>
         <input type="text" id="fbLink" class="admin-input" placeholder="https://facebook.com/..."/>
         <label class="admin-label">رابط الإنستغرام</label>
@@ -675,57 +674,46 @@ body {
 
 // ===================== CONFIG =====================
 const ADMIN_PASSWORD = 'lilya2025';
-const STORAGE_KEY_PRODUCTS = 'lilya-products-v3';
-const STORAGE_KEY_CONTACT  = 'lilya-contact-v2';
+const STORAGE_KEY_PRODUCTS = 'lilya_products_v3';
+const STORAGE_KEY_CONTACT  = 'lilya_contact_v2';
 
+// تم إصلاح الأخطاء هنا ووضع أسماء المنتجات بين علامتي تنصيص "" ليعمل الكود بدون أخطاء
 const DEFAULT_PRODUCTS = [
-  { id: 1, name: ورد صناعي, price: 800, category: 'bouquets', image: 'https://i.ibb.co/23FddG0/5868555296949603789.jpg' },
-  { id: 2, name: بوكيه عدد 8 وردات وفراشه, price: 310, category: 'bouquets', image: 'https://i.ibb.co/svtv94M/5868555296949603785.jpg' },
-  { id: 3, name: صينية عرض خاتم فاخرة, price: 550, category: 'trays', image: 'https://i.ibb.co/7xnDjh0/5868555296949603780.jpg' },
-  { id: 4, name: صينية شبكه, price: 550, category: 'trays', image: 'https://i.ibb.co/P2wyBjX/5868555296949603776.jpg' },
-  { id: 5, name: مراية قراية فتحه, price: 450, category: 'accessories', image: 'https://i.ibb.co/1JwhScH/5868555296949603784.jpg' },
-  { id: 6, name: مراية قراية فتحه, price: 550, category: 'accessories', image: 'https://i.ibb.co/wZVJHMWF/5868555296949603787.jpg' },
-  { id: 7, name: بوكيه عدد 5 وردات ستان, price: 175, category: 'bouquets', image: 'https://i.ibb.co/7xJpv2xs/5868555296949603783.jpg' },
-  { id: 8, name: بوكيه عدد 25 وردة ستان, price: 875, category: 'bouquets', image: 'https://i.ibb.co/kZYPpfWv/5868555296949603786.jpg' },
-  { id: 9, name: بوكيه عدد 15 وردة ستان ولولي وفراشات, price: 625, category: 'bouquets', image: 'https://i.ibb.co/wTmLcdR/5868555296949603782.jpg' },
-  { id: 10, name: بوكيه عدد 15 وردة ستان, price: 525, category: 'bouquets', image: 'https://i.ibb.co/TDBZ4LS7/5868555296949603779.jpg' },
-  { id: 11, name: بوكيه عدد 25 وردة ستان, price: 875, category: 'bouquets', image: 'https://i.ibb.co/HD8KVbM1/5868555296949603777.jpg' },
-  { id: 12, name: بوكيه عدد 10 وردات ستان, price: 350, category: 'bouquets', image: 'https://i.ibb.co/CKwxt2Xk/5868555296949603775.jpg' }
+  { id: 1, name: "ورد صناعي", price: 800, category: 'bouquets', image: 'https://i.ibb.co/23FddG0/5868555296949603789.jpg' },
+  { id: 2, name: "بوكيه عدد 8 وردات وفراشه", price: 310, category: 'bouquets', image: 'https://i.ibb.co/svtv94M/5868555296949603785.jpg' },
+  { id: 3, name: "صينية عرض خاتم فاخرة", price: 550, category: 'trays', image: 'https://i.ibb.co/7xnDjh0/5868555296949603780.jpg' },
+  { id: 4, name: "صينية شبكه", price: 550, category: 'trays', image: 'https://i.ibb.co/P2wyBjX/5868555296949603776.jpg' },
+  { id: 5, name: "مراية قراية فتحه", price: 450, category: 'accessories', image: 'https://i.ibb.co/1JwhScH/5868555296949603784.jpg' },
+  { id: 6, name: "مراية قراية فتحه", price: 550, category: 'accessories', image: 'https://i.ibb.co/wZVJHMWF/5868555296949603787.jpg' },
+  { id: 7, name: "بوكيه عدد 5 وردات ستان", price: 175, category: 'bouquets', image: 'https://i.ibb.co/7xJpv2xs/5868555296949603783.jpg' },
+  { id: 8, name: "بوكيه عدد 25 وردة ستان", price: 875, category: 'bouquets', image: 'https://i.ibb.co/kZYPpfWv/5868555296949603786.jpg' },
+  { id: 9, name: "بوكيه عدد 15 وردة ستان ولولي وفراشات", price: 625, category: 'bouquets', image: 'https://i.ibb.co/wTmLcdR/5868555296949603782.jpg' },
+  { id: 10, name: "بوكيه عدد 15 وردة ستان", price: 525, category: 'bouquets', image: 'https://i.ibb.co/TDBZ4LS7/5868555296949603779.jpg' },
+  { id: 11, name: "بوكيه عدد 25 وردة ستان", price: 875, category: 'bouquets', image: 'https://i.ibb.co/HD8KVbM1/5868555296949603777.jpg' },
+  { id: 12, name: "بوكيه عدد 10 وردات ستان", price: 350, category: 'bouquets', image: 'https://i.ibb.co/CKwxt2Xk/5868555296949603775.jpg' }
 ];
 
-
-const DEFAULT_CONTACT = { wa: '201001234567', fb: 'https://facebook.com/lilyabrand', ig: 'https://instagram.com/lilyabrand', tt: '' };
+const DEFAULT_CONTACT = { 
+  wa: '201110489055', 
+  fb: 'https://facebook.com/lilyabrand', 
+  ig: 'https://instagram.com/lilyabrand', 
+  tt: '' 
+};
 
 // ===================== STATE =====================
 let products = [];
 let contact  = {};
 let activeFilter = 'all';
-let adminLoggedIn = false;
 let newImageBase64 = '';
 
-// ===================== PERSISTENT STORAGE =====================
-async function loadFromStorage() {
-  // Try Artifact Storage first (persists across sessions/devices)
-  try {
-    const pRes = await window.storage.get(STORAGE_KEY_PRODUCTS);
-    products = pRes ? JSON.parse(pRes.value) : [...DEFAULT_PRODUCTS];
-  } catch {
-    // Fallback: localStorage
-    try {
-      const p = localStorage.getItem('lilya_products');
-      products = p ? JSON.parse(p) : [...DEFAULT_PRODUCTS];
-    } catch { products = [...DEFAULT_PRODUCTS]; }
-  }
+// ===================== FUNCTIONS =====================
 
-  try {
-    const cRes = await window.storage.get(STORAGE_KEY_CONTACT);
-    contact = cRes ? JSON.parse(cRes.value) : { ...DEFAULT_CONTACT };
-  } catch {
-    try {
-      const c = localStorage.getItem('lilya_contact');
-      contact = c ? JSON.parse(c) : { ...DEFAULT_CONTACT };
-    } catch { contact = { ...DEFAULT_CONTACT }; }
-  }
+function loadFromStorage() {
+  const p = localStorage.getItem(STORAGE_KEY_PRODUCTS);
+  products = p ? JSON.parse(p) : [...DEFAULT_PRODUCTS];
+
+  const c = localStorage.getItem(STORAGE_KEY_CONTACT);
+  contact = c ? JSON.parse(c) : { ...DEFAULT_CONTACT };
 }
 
 function showSaving(msg = '💾 جاري الحفظ...') {
@@ -735,330 +723,301 @@ function showSaving(msg = '💾 جاري الحفظ...') {
   setTimeout(() => el.classList.remove('show'), 2000);
 }
 
-async function saveProducts() {
-  // Save to both storages
-  try {
-    await window.storage.set(STORAGE_KEY_PRODUCTS, JSON.stringify(products));
-  } catch {}
-  try { localStorage.setItem('lilya_products', JSON.stringify(products)); } catch {}
+function saveProducts() {
+  localStorage.setItem(STORAGE_KEY_PRODUCTS, JSON.stringify(products));
+  renderProducts();
+  renderAdminProducts();
   showSaving('✅ تم حفظ المنتجات');
 }
 
-async function saveContact() {
-  try {
-    await window.storage.set(STORAGE_KEY_CONTACT, JSON.stringify(contact));
-  } catch {}
-  try { localStorage.setItem('lilya_contact', JSON.stringify(contact)); } catch {}
+function saveContact() {
+  localStorage.setItem(STORAGE_KEY_CONTACT, JSON.stringify(contact));
+  updateContactLinks();
+  showSaving('✅ تم حفظ بيانات التواصل');
 }
 
-// ===================== RENDER PRODUCTS =====================
+function updateContactLinks() {
+  document.getElementById('waLinkElement').href = `https://wa.me/${contact.wa}`;
+  document.getElementById('fbLinkElement').href = contact.fb;
+  document.getElementById('igLinkElement').href = contact.ig;
+  
+  // تحديث القيم داخل إنبوتس لوحة التحكم
+  document.getElementById('waNumber').value = contact.wa;
+  document.getElementById('fbLink').value = contact.fb;
+  document.getElementById('igLink').value = contact.ig;
+  document.getElementById('ttLink').value = contact.tt || '';
+}
+
+// عرض المنتجات في الصفحة الرئيسية بناء على الفلتر
 function renderProducts() {
-  const grid  = document.getElementById('productsGrid');
-  const empty = document.getElementById('emptyState');
-  const filtered = activeFilter === 'all' ? products : products.filter(p => p.category === activeFilter);
+  const grid = document.getElementById('productsGrid');
+  const emptyState = document.getElementById('emptyState');
   grid.innerHTML = '';
-  if (filtered.length === 0) { empty.style.display = 'block'; return; }
-  empty.style.display = 'none';
-  const catLabels = { bouquets: 'الباقات', trays: 'الصواني', accessories: 'إكسسوارات' };
-  filtered.forEach((prod, i) => {
+
+  const filtered = activeFilter === 'all' ? products : products.filter(p => p.category === activeFilter);
+
+  if (filtered.length === 0) {
+    emptyState.style.display = 'block';
+    return;
+  }
+  emptyState.style.display = 'none';
+
+  filtered.forEach(product => {
     const card = document.createElement('div');
     card.className = 'product-card fade-up';
-    card.style.animationDelay = `${i * 0.07}s`;
     card.innerHTML = `
       <div class="product-img-wrap">
-        <img src="${prod.image}" alt="${prod.name}" loading="lazy"
-             onerror="this.src='https://images.unsplash.com/photo-1490750967868-88df5691cc57?w=600&q=80'"/>
-        <span class="product-badge">${catLabels[prod.category] || ''}</span>
-        <div class="product-overlay"><button class="overlay-btn">عرض التفاصيل</button></div>
+        <img src="${product.image}" alt="${product.name}" loading="lazy">
+        <div class="product-overlay">
+          <button class="overlay-btn">عرض التفاصيل</button>
+        </div>
       </div>
       <div class="product-info">
-        <p class="product-name">${prod.name}</p>
-        <p class="product-price">${prod.price.toLocaleString('ar-EG')} جنيه</p>
-      </div>`;
-    card.addEventListener('click', () => openProductModal(prod));
+        <h4 class="product-name">${product.name}</h4>
+        <p class="product-price">${product.price} جنيه</p>
+      </div>
+    `;
+    card.addEventListener('click', () => openProductModal(product));
     grid.appendChild(card);
   });
 }
 
-// ===================== PRODUCT MODAL =====================
-function openProductModal(prod) {
-  const modal = document.getElementById('productModal');
-  document.getElementById('modalImage').src = prod.image;
-  document.getElementById('modalImage').onerror = function(){ this.src='https://images.unsplash.com/photo-1490750967868-88df5691cc57?w=600&q=80'; };
-  document.getElementById('modalName').textContent  = prod.name;
-  document.getElementById('modalPrice').textContent = `${prod.price.toLocaleString('ar-EG')} جنيه`;
-  const waMsg = encodeURIComponent(`مرحباً أريد الاستفسار عن المنتج: ${prod.name} بسعر ${prod.price} جنيه 💐`);
-  document.getElementById('modalWa').href = `https://wa.me/${contact.wa}?text=${waMsg}`;
-  modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeProductModal() {
-  document.getElementById('productModal').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-// ===================== RENDER CONTACT =====================
-function renderContact() {
-  const wrap = document.getElementById('socialLinks');
-  wrap.innerHTML = '';
-  const links = [
-    { href: `https://wa.me/${contact.wa}`, icon: '💬', label: 'واتساب', show: !!contact.wa },
-    { href: contact.fb, icon: '📘', label: 'فيسبوك', show: !!contact.fb },
-    { href: contact.ig, icon: '📸', label: 'إنستغرام', show: !!contact.ig },
-    { href: contact.tt, icon: '🎵', label: 'تيك توك', show: !!contact.tt },
-  ];
-  links.forEach(l => {
-    if (!l.show) return;
-    const a = document.createElement('a');
-    a.href = l.href; a.target = '_blank'; a.rel = 'noopener noreferrer';
-    a.className = 'social-link';
-    a.innerHTML = `<span class="social-icon">${l.icon}</span> ${l.label}`;
-    wrap.appendChild(a);
+// عرض قائمة المنتجات داخل لوحة التحكم للحذف
+function renderAdminProducts() {
+  const list = document.getElementById('adminProductsList');
+  list.innerHTML = '';
+  
+  products.forEach(product => {
+    const item = document.createElement('div');
+    item.className = 'admin-product-item';
+    item.innerHTML = `
+      <img src="${product.image}" alt="">
+      <div class="admin-product-info">
+        <div class="admin-product-name">${product.name}</div>
+        <div class="admin-product-price">${product.price} جنيه</div>
+      </div>
+      <div class="admin-product-actions">
+        <button class="btn-del" onclick="deleteProduct(${product.id})">حذف</button>
+      </div>
+    `;
+    list.appendChild(item);
   });
 }
 
-// ===================== FILTER TABS =====================
-function initFilterTabs() {
+window.deleteProduct = function(id) {
+  if(confirm('هل أنت متأكد من حذف هذا المنتج؟')) {
+    products = products.filter(p => p.id !== id);
+    saveProducts();
+  }
+}
+
+// النافذة المنبثقة للمنتج والطلب عبر الواتساب
+function openProductModal(product) {
+  document.getElementById('modalImage').src = product.image;
+  document.getElementById('modalName').textContent = product.name;
+  document.getElementById('modalPrice').textContent = `${product.price} جنيه`;
+  
+  const message = encodeURIComponent(`مرحباً Lilya Brand، أود الاستفسار عن منتج: ${product.name} بسعر ${product.price} جنيه.`);
+  document.getElementById('modalWa').href = `https://wa.me/${contact.wa}?text=${message}`;
+  
+  document.getElementById('productModal').classList.add('open');
+}
+
+// ===================== CANVA ANIMATION (PETALS) =====================
+function initPetals() {
+  const canvas = document.getElementById('petalsCanvas');
+  const ctx = canvas.getContext('2d');
+  
+  let width = canvas.width = window.innerWidth;
+  let height = canvas.height = window.innerHeight;
+  
+  window.addEventListener('resize', () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  });
+
+  const petalCount = 25;
+  const petals = [];
+  const icons = ['🌸', '🌹', '✨'];
+
+  for (let i = 0; i < petalCount; i++) {
+    petals.push({
+      x: Math.random() * width,
+      y: Math.random() * height - height,
+      size: Math.random() * 12 + 10,
+      speedX: Math.random() * 1.5 - 0.5,
+      speedY: Math.random() * 1 + 1,
+      icon: icons[Math.floor(Math.random() * icons.length)],
+      opacity: Math.random() * 0.5 + 0.3
+    });
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+    petals.forEach(p => {
+      p.y += p.speedY;
+      p.x += p.speedX;
+      
+      if (p.y > height) {
+        p.y = -20;
+        p.x = Math.random() * width;
+      }
+      
+      ctx.save();
+      ctx.globalAlpha = p.opacity;
+      ctx.font = `${p.size}px serif`;
+      ctx.fillText(p.icon, p.x, p.y);
+      ctx.restore();
+    });
+    requestAnimationFrame(animate);
+  }
+  animate();
+}
+
+// ===================== EVENTS INIT =====================
+document.addEventListener('DOMContentLoaded', () => {
+  loadFromStorage();
+  renderProducts();
+  initPetals();
+  updateContactLinks();
+
+  // تأثير تحرك النبار عند السكرول
+  window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // قائمة الموبايل (الهامبرغر)
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+
+  // إغلاق قائمة الموبايل عند الضغط على أي رابط
+  document.querySelectorAll('.nav-item').forEach(item => {
+    item.addEventListener('click', (e) => {
+      document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+      navLinks.classList.remove('open');
+    });
+  });
+
+  // فلاتر المتجر
   document.querySelectorAll('.tab').forEach(tab => {
     tab.addEventListener('click', () => {
       document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
-      activeFilter = tab.dataset.filter;
+      activeFilter = tab.getAttribute('data-filter');
       renderProducts();
     });
   });
-  document.querySelectorAll('[data-cat]').forEach(el => {
-    el.addEventListener('click', e => {
-      e.preventDefault();
-      const cat = el.dataset.cat;
-      activeFilter = cat;
-      document.querySelectorAll('.tab').forEach(t => { t.classList.toggle('active', t.dataset.filter === cat); });
-      document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });
-      setTimeout(renderProducts, 400);
+
+  // فلاتر كروت الأقسام السريعة
+  document.querySelectorAll('.cat-card .btn-outline').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const cat = btn.getAttribute('data-cat');
+      const targetTab = document.querySelector(`.tab[data-filter="${cat}"]`);
+      if(targetTab) targetTab.click();
     });
   });
-}
 
-// ===================== NAVBAR =====================
-function initNavbar() {
-  const nav = document.getElementById('navbar');
-  const items = document.querySelectorAll('.nav-item');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-    const sections = ['home','shop','contact'];
-    let current = '';
-    sections.forEach(id => {
-      const el = document.getElementById(id);
-      if (el && window.scrollY >= el.offsetTop - 120) current = id;
-    });
-    items.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === `#${current}`); });
-  }, { passive: true });
+  // إغلاق مودال المنتج
+  document.getElementById('modalClose').addEventListener('click', () => {
+    document.getElementById('productModal').classList.remove('open');
+  });
 
-  const hb = document.getElementById('hamburger');
-  const links = document.querySelector('.nav-links');
-  hb.addEventListener('click', () => links.classList.toggle('open'));
-  document.querySelectorAll('.nav-item').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
-}
-
-// ===================== ADMIN =====================
-function initAdmin() {
-  const overlay  = document.getElementById('adminOverlay');
-  const loginDiv = document.getElementById('adminLogin');
-  const content  = document.getElementById('adminContent');
-
+  // فتح وإغلاق لوحة التحكم
   document.getElementById('openAdmin').addEventListener('click', () => {
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    if (!adminLoggedIn) { loginDiv.style.display = 'block'; content.style.display = 'none'; }
+    document.getElementById('adminOverlay').classList.add('open');
   });
-  document.getElementById('closeAdmin').addEventListener('click', closeAdmin);
-  overlay.addEventListener('click', e => { if (e.target === overlay) closeAdmin(); });
+  document.getElementById('closeAdmin').addEventListener('click', () => {
+    document.getElementById('adminOverlay').classList.remove('open');
+  });
 
-  document.getElementById('adminLoginBtn').addEventListener('click', tryLogin);
-  document.getElementById('adminPassword').addEventListener('keydown', e => { if (e.key === 'Enter') tryLogin(); });
-
-  function tryLogin() {
-    const pw = document.getElementById('adminPassword').value;
-    if (pw === ADMIN_PASSWORD) {
-      adminLoggedIn = true;
-      loginDiv.style.display = 'none';
-      content.style.display  = 'block';
+  // تسجيل الدخول للوحة التحكم
+  document.getElementById('adminLoginBtn').addEventListener('click', () => {
+    const pass = document.getElementById('adminPassword').value;
+    if (pass === ADMIN_PASSWORD) {
+      document.getElementById('adminLogin').style.display = 'none';
+      document.getElementById('adminContent').style.display = 'block';
       document.getElementById('loginError').style.display = 'none';
-      loadContactFields();
       renderAdminProducts();
     } else {
       document.getElementById('loginError').style.display = 'block';
-      document.getElementById('adminPassword').value = '';
     }
-  }
+  });
 
-  // Tabs
+  // التبديل بين تابات لوحة التحكم
   document.querySelectorAll('.admin-tab').forEach(tab => {
     tab.addEventListener('click', () => {
       document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
       document.querySelectorAll('.admin-tab-content').forEach(c => c.classList.remove('active-tab'));
-      document.getElementById(`tab-${tab.dataset.tab}`).classList.add('active-tab');
+      
+      tab.classList.add('active');
+      document.getElementById(`tab-${tab.getAttribute('data-tab')}`).classList.add('active-tab');
     });
   });
 
-  // Image upload
-  document.getElementById('newImage').addEventListener('change', function() {
-    const file = this.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = e => {
-      newImageBase64 = e.target.result;
-      document.getElementById('imagePreview').innerHTML = `<img src="${newImageBase64}" alt="preview"/>`;
+  // تحويل الصورة المرفوعة لقاعدة Base64 لعرضها وحفظها
+  document.getElementById('newImage').addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        newImageBase64 = event.target.result;
+        document.getElementById('imagePreview').innerHTML = `<img src="${newImageBase64}" alt="Preview">`;
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+
+  // إضافة منتج جديد
+  document.getElementById('addProductBtn').addEventListener('click', () => {
+    const name = document.getElementById('newName').value.trim();
+    const price = parseFloat(document.getElementById('newPrice').value);
+    const category = document.getElementById('newCategory').value;
+
+    if (!name || !price || !newImageBase64) {
+      alert('الرجاء ملء جميع الحقول واختيار صورة للمنتج');
+      return;
+    }
+
+    const newProduct = {
+      id: Date.now(),
+      name: name,
+      price: price,
+      category: category,
+      image: newImageBase64
     };
-    reader.readAsDataURL(file);
+
+    products.push(newProduct);
+    saveProducts();
+
+    // إعادة تعيين الحقول
+    document.getElementById('newName').value = '';
+    document.getElementById('newPrice').value = '';
+    document.getElementById('imagePreview').innerHTML = '';
+    newImageBase64 = '';
+    alert('تمت إضافة المنتج بنجاح! 🎉');
   });
 
-  document.getElementById('addProductBtn').addEventListener('click', addProduct);
-  document.getElementById('saveContactBtn').addEventListener('click', saveContactData);
-}
+  // حفظ إعدادات التواصل
+  document.getElementById('saveContactBtn').addEventListener('click', () => {
+    contact.wa = document.getElementById('waNumber').value.trim();
+    contact.fb = document.getElementById('fbLink').value.trim();
+    contact.ig = document.getElementById('igLink').value.trim();
+    contact.tt = document.getElementById('ttLink').value.trim();
 
-function closeAdmin() {
-  document.getElementById('adminOverlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-async function addProduct() {
-  const name  = document.getElementById('newName').value.trim();
-  const price = parseFloat(document.getElementById('newPrice').value);
-  const cat   = document.getElementById('newCategory').value;
-  const img   = newImageBase64 || 'https://images.unsplash.com/photo-1490750967868-88df5691cc57?w=600&q=80';
-
-  if (!name || isNaN(price) || price <= 0) { alert('يرجى إدخال اسم المنتج والسعر بشكل صحيح'); return; }
-
-  products.unshift({ id: Date.now(), name, price, category: cat, image: img });
-  await saveProducts();
-
-  document.getElementById('newName').value  = '';
-  document.getElementById('newPrice').value = '';
-  document.getElementById('imagePreview').innerHTML = '';
-  newImageBase64 = '';
-
-  renderProducts();
-  renderAdminProducts();
-}
-
-function renderAdminProducts() {
-  const list = document.getElementById('adminProductsList');
-  list.innerHTML = '';
-  if (products.length === 0) {
-    list.innerHTML = '<p style="color:var(--text-light);font-size:0.9rem;text-align:center;">لا توجد منتجات</p>';
-    return;
-  }
-  products.forEach(prod => {
-    const item = document.createElement('div');
-    item.className = 'admin-product-item';
-    item.innerHTML = `
-      <img src="${prod.image}" alt="${prod.name}" onerror="this.src='https://images.unsplash.com/photo-1490750967868-88df5691cc57?w=600&q=80'"/>
-      <div class="admin-product-info">
-        <div class="admin-product-name">${prod.name}</div>
-        <div class="admin-product-price">${prod.price.toLocaleString('ar-EG')} جنيه</div>
-      </div>
-      <div class="admin-product-actions">
-        <button class="btn-edit" data-id="${prod.id}">✏️ تعديل</button>
-        <button class="btn-del"  data-id="${prod.id}">🗑️ حذف</button>
-      </div>`;
-    list.appendChild(item);
+    saveContact();
+    const sMsg = document.getElementById('contactSuccess');
+    sMsg.style.display = 'block';
+    setTimeout(() => sMsg.style.display = 'none', 3000);
   });
-
-  list.querySelectorAll('.btn-del').forEach(btn => {
-    btn.addEventListener('click', async () => {
-      if (confirm('هل تريدين فعلاً حذف هذا المنتج؟')) {
-        products = products.filter(p => p.id != btn.dataset.id);
-        await saveProducts();
-        renderProducts();
-        renderAdminProducts();
-      }
-    });
-  });
-
-  list.querySelectorAll('.btn-edit').forEach(btn => {
-    btn.addEventListener('click', async () => {
-      const prod = products.find(p => p.id == btn.dataset.id);
-      if (!prod) return;
-      const newName = prompt(`اسم المنتج:`, prod.name);
-      if (newName === null) return;
-      const newPrice = prompt(`السعر لـ "${newName || prod.name}":`, prod.price);
-      if (newPrice === null) return;
-      const parsed = parseFloat(newPrice);
-      if (isNaN(parsed) || parsed <= 0) { alert('سعر غير صالح'); return; }
-      if (newName.trim()) prod.name = newName.trim();
-      prod.price = parsed;
-      await saveProducts();
-      renderProducts();
-      renderAdminProducts();
-    });
-  });
-}
-
-function loadContactFields() {
-  document.getElementById('waNumber').value = contact.wa || '';
-  document.getElementById('fbLink').value   = contact.fb || '';
-  document.getElementById('igLink').value   = contact.ig || '';
-  document.getElementById('ttLink').value   = contact.tt || '';
-}
-
-async function saveContactData() {
-  contact.wa = document.getElementById('waNumber').value.trim();
-  contact.fb = document.getElementById('fbLink').value.trim();
-  contact.ig = document.getElementById('igLink').value.trim();
-  contact.tt = document.getElementById('ttLink').value.trim();
-  await saveContact();
-  renderContact();
-  const succ = document.getElementById('contactSuccess');
-  succ.style.display = 'block';
-  setTimeout(() => succ.style.display = 'none', 2500);
-}
-
-// ===================== PETALS =====================
-function initPetals() {
-  const canvas = document.getElementById('petalsCanvas');
-  const ctx = canvas.getContext('2d');
-  let petals = [], W, H;
-  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
-  class Petal {
-    constructor() { this.reset(true); }
-    reset(init=false) {
-      this.x = Math.random()*W; this.y = init ? Math.random()*-H : -30;
-      this.size = 6+Math.random()*10; this.speedY = 0.6+Math.random()*1.2;
-      this.speedX = (Math.random()-0.5)*1.2; this.rot = Math.random()*Math.PI*2;
-      this.rotSpd = (Math.random()-0.5)*0.04; this.alpha = 0.5+Math.random()*0.5;
-      const hue=340+Math.random()*30, sat=60+Math.random()*20, lgt=75+Math.random()*15;
-      this.color = `hsla(${hue},${sat}%,${lgt}%,`;
-    }
-    update() { this.y+=this.speedY; this.x+=this.speedX+Math.sin(this.y*0.02)*0.5; this.rot+=this.rotSpd; if(this.y>H+40)this.reset(); }
-    draw() {
-      ctx.save(); ctx.translate(this.x,this.y); ctx.rotate(this.rot); ctx.globalAlpha=this.alpha;
-      ctx.fillStyle=this.color+'1)'; ctx.beginPath(); ctx.moveTo(0,0);
-      ctx.bezierCurveTo(this.size,-this.size,this.size*2,this.size,0,this.size*2.2);
-      ctx.bezierCurveTo(-this.size,this.size,-this.size,-this.size,0,0);
-      ctx.fill(); ctx.restore();
-    }
-  }
-  function init() { resize(); petals = Array.from({length:45},()=>new Petal()); }
-  function loop() { ctx.clearRect(0,0,W,H); petals.forEach(p=>{p.update();p.draw();}); requestAnimationFrame(loop); }
-  window.addEventListener('resize', resize, {passive:true});
-  init(); loop();
-}
-
-// ===================== INIT =====================
-document.addEventListener('DOMContentLoaded', async () => {
-  await loadFromStorage();
-  renderProducts();
-  renderContact();
-  initFilterTabs();
-  initNavbar();
-  initAdmin();
-  document.getElementById('modalClose').addEventListener('click', closeProductModal);
-  document.getElementById('productModal').addEventListener('click', e => {
-    if (e.target === document.getElementById('productModal')) closeProductModal();
-  });
-  initPetals();
 });
 </script>
 </body>
