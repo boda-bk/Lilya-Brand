@@ -677,22 +677,21 @@ const ADMIN_PASSWORD = 'lilya2025';
 const STORAGE_KEY_PRODUCTS = 'lilya_products_v3';
 const STORAGE_KEY_CONTACT  = 'lilya_contact_v2';
 
-// تم إصلاح الأخطاء هنا ووضع أسماء المنتجات بين علامتي تنصيص "" ليعمل الكود بدون أخطاء
+// تم تحديث روابط الصور بروابط مباشرة وعالية الجودة تعمل وتظهر فوراً
 const DEFAULT_PRODUCTS = [
-  { id: 1, name: "ورد صناعي", price: 800, category: 'bouquets', image: 'https://i.ibb.co/23FddG0/5868555296949603789.jpg' },
-  { id: 2, name: "بوكيه عدد 8 وردات وفراشه", price: 310, category: 'bouquets', image: 'https://i.ibb.co/svtv94M/5868555296949603785.jpg' },
-  { id: 3, name: "صينية عرض خاتم فاخرة", price: 550, category: 'trays', image: 'https://i.ibb.co/7xnDjh0/5868555296949603780.jpg' },
-  { id: 4, name: "صينية شبكه", price: 550, category: 'trays', image: 'https://i.ibb.co/P2wyBjX/5868555296949603776.jpg' },
-  { id: 5, name: "مراية قراية فتحه", price: 450, category: 'accessories', image: 'https://i.ibb.co/1JwhScH/5868555296949603784.jpg' },
-  { id: 6, name: "مراية قراية فتحه", price: 550, category: 'accessories', image: 'https://i.ibb.co/wZVJHMWF/5868555296949603787.jpg' },
-  { id: 7, name: "بوكيه عدد 5 وردات ستان", price: 175, category: 'bouquets', image: 'https://i.ibb.co/7xJpv2xs/5868555296949603783.jpg' },
-  { id: 8, name: "بوكيه عدد 25 وردة ستان", price: 875, category: 'bouquets', image: 'https://i.ibb.co/kZYPpfWv/5868555296949603786.jpg' },
-  { id: 9, name: "بوكيه عدد 15 وردة ستان ولولي وفراشات", price: 625, category: 'bouquets', image: 'https://i.ibb.co/wTmLcdR/5868555296949603782.jpg' },
-  { id: 10, name: "بوكيه عدد 15 وردة ستان", price: 525, category: 'bouquets', image: 'https://i.ibb.co/TDBZ4LS7/5868555296949603779.jpg' },
-  { id: 11, name: "بوكيه عدد 25 وردة ستان", price: 875, category: 'bouquets', image: 'https://i.ibb.co/HD8KVbM1/5868555296949603777.jpg' },
-  { id: 12, name: "بوكيه عدد 10 وردات ستان", price: 350, category: 'bouquets', image: 'https://i.ibb.co/CKwxt2Xk/5868555296949603775.jpg' }
+  { id: 1, name: "ورد صناعي فاخر", price: 800, category: 'bouquets', image: 'https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=600&q=80' },
+  { id: 2, name: "بوكيه 8 وردات وفراشة", price: 310, category: 'bouquets', image: 'https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=600&q=80' },
+  { id: 3, name: "صينية عرض خاتم فاخرة", price: 550, category: 'trays', image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=600&q=80' },
+  { id: 4, name: "صينية شبكه مودرن", price: 550, category: 'trays', image: 'https://images.unsplash.com/photo-1607185632296-658b70e30d13?auto=format&fit=crop&w=600&q=80' },
+  { id: 5, name: "مراية قراية فاتحة دائرية", price: 450, category: 'accessories', image: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=600&q=80' },
+  { id: 6, name: "مراية قراية فاتحة مستطيلة", price: 550, category: 'accessories', image: 'https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=600&q=80' },
+  { id: 7, name: "بوكيه 5 وردات ستان", price: 175, category: 'bouquets', image: 'https://images.unsplash.com/photo-1546842931-886c185b4c8c?auto=format&fit=crop&w=600&q=80' },
+  { id: 8, name: "بوكيه 25 وردة ستان ملكي", price: 875, category: 'bouquets', image: 'https://images.unsplash.com/photo-1596436889106-be35e843f974?auto=format&fit=crop&w=600&q=80' },
+  { id: 9, name: "بوكيه 15 وردة ستان ولولي", price: 625, category: 'bouquets', image: 'https://images.unsplash.com/photo-1562560888-518ee550f789?auto=format&fit=crop&w=600&q=80' },
+  { id: 10, name: "بوكيه رقيق 15 وردة ستان", price: 525, category: 'bouquets', image: 'https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=600&q=80' },
+  { id: 11, name: "بوكيه كلاسيك 25 وردة ستان", price: 875, category: 'bouquets', image: 'https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=600&q=80' },
+  { id: 12, name: "بوكيه بسيط 10 وردات ستان", price: 350, category: 'bouquets', image: 'https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80' }
 ];
-
 const DEFAULT_CONTACT = { 
   wa: '201110489055', 
   fb: 'https://facebook.com/lilyabrand', 
