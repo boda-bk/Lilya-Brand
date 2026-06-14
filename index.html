@@ -499,8 +499,15 @@ body {
   </div>
   <div class="hero-icons">
     <span class="float-icon">🌸</span>
+        <span class="float-icon">🌸</span>
+    <span class="float-icon">🌸</span>
     <span class="float-icon delay1">💍</span>
-    <span class="float-icon delay2">🌹</span>
+  <span class="float-icon delay2">💍</span>
+    <span class="float-icon delay3">💍</span>
+    <span class="float-icon delay4">🌹</span>
+        <span class="float-icon delay5">🌹</span>
+    <span class="float-icon delay6">🌹</span>
+
   </div>
   <div class="hero-divider">
     <svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="var(--beige)"/></svg>
@@ -515,19 +522,19 @@ body {
       <div class="cat-card" data-filter="bouquets">
         <div class="cat-icon">💐</div>
         <h3>باقات الزهور</h3>
-        <p>باقات مصممة خصيصاً من أجمل الزهور الطبيعية والصناعية الفاخرة</p>
+        <p>باقات مصممة خصيصاً من أجمل الزهور الستان والصناعية الفاخرة</p>
         <a href="#shop" class="btn-outline" data-cat="bouquets">استعرضي</a>
       </div>
       <div class="cat-card featured" data-filter="trays">
         <div class="cat-icon">✨</div>
         <h3>صواني عرض الخاتم</h3>
-        <p>صواني فاخرة مزخرفة بالورود والإكسسوارات لحظة التقديم</p>
+        <p>صواني فاخرة مزخرفة بالإكسسوارات لحظة التقديم</p>
         <a href="#shop" class="btn-outline" data-cat="trays">استعرضي</a>
       </div>
       <div class="cat-card" data-filter="accessories">
         <div class="cat-icon">👑</div>
         <h3>إكسسوارات العروس</h3>
-        <p>تاجات وطرح وإكسسوارات تجعلك أميرة في يومك الأسطوري</p>
+        <p>مرايات قراية الفاتحه</p>
         <a href="#shop" class="btn-outline" data-cat="accessories">استعرضي</a>
       </div>
     </div>
@@ -557,7 +564,7 @@ body {
     <div class="gold-line"></div>
     <div class="testimonials-grid">
       <div class="testimonial-card">
-        <p class="quote">"الباقة كانت تحفة فنية من كل ما توقعت! كل التفاصيل كانت مثالية وفاق توقعاتي كتير 💕"</p>
+        <p class="quote">"البوكيه الستان تحفة فنية كل التفاصيل كانت مثالية وفاق توقعاتي كتير 💕"</p>
         <span class="reviewer">— سارة، يناير 2024</span>
       </div>
       <div class="testimonial-card featured">
@@ -565,7 +572,7 @@ body {
         <span class="reviewer">— نورا، مارس 2024</span>
       </div>
       <div class="testimonial-card">
-        <p class="quote">"الإكسسوارات كانت تليق تماماً بفستاني واللون المختار. شكراً من القلب على الاهتمام 🌹"</p>
+        <p class="quote">" شكراً من القلب على الاهتمام 🌹"</p>
         <span class="reviewer">— فاطمة، فبراير 2025</span>
       </div>
     </div>
@@ -577,8 +584,17 @@ body {
     <h2 class="section-title">تواصلي معنا</h2>
     <div class="gold-line"></div>
     <p class="contact-subtitle">هل لديك سؤال أو تريدين طلب مخصص ؟</p>
-    <div class="social-links" id="socialLinks"></div>
-  </div>
+<div class="social-links" id="socialLinks">
+    <a href="https://www.facebook.com/YOUR_USERNAME" target="_blank" class="social-icon">
+        <i class="fab fa-facebook-f"></i> فيسبوك
+    </a>
+    <a href="https://www.instagram.com/YOUR_USERNAME" target="_blank" class="social-icon">
+        <i class="fab fa-instagram"></i> إنستغرام
+    </a>
+    <a href="https://wa.me/+201110489055" target="_blank" class="social-icon">
+        <i class="fab fa-whatsapp"></i> واتساب
+    </a>
+</div>
 </section>
 
 <footer class="footer">
@@ -663,12 +679,19 @@ const STORAGE_KEY_PRODUCTS = 'lilya-products-v2';
 const STORAGE_KEY_CONTACT  = 'lilya-contact-v2';
 
 const DEFAULT_PRODUCTS = [
-  { id: 1, name: 'باقة ورد أحمر', price: 350, category: 'bouquets', image: 'https://i.ibb.co/23FddG0c/5868555296949603789.jpg' },
-  { id: 2, name: 'باقة الفاوانيا الرومانسية', price: 450, category: 'bouquets', image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80' },
-  { id: 3, name: 'صينية عرض خاتم فاخرة', price: 1200, category: 'trays', image: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&q=80' },
-  { id: 4, name: 'صينية عرض خاتم مع ورود', price: 950, category: 'trays', image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80' },
-  { id: 5, name: 'تاج العروس', price: 280, category: 'accessories', image: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600&q=80' },
-  { id: 6, name: 'طرح دانتيل فاخر', price: 550, category: 'accessories', image: 'https://images.unsplash.com/photo-1563178406-4cdc2923acbc?w=600&q=80' }
+  { id: 1, name: 'ورد صناعي', price: 800, category: 'bouquets', image: 'https://i.ibb.co/23FddG0c/5868555296949603789.jpg' },
+  { id: 2, name: 'بوكيه عدد 8 وردات وفراشه', price: 310, category: 'bouquets', image: 'https://i.ibb.co/svtv94M3/5868555296949603785.jpg' },
+  { id: 3, name: 'صينية عرض خاتم فاخرة', price: 550, category: 'trays', image: 'https://i.ibb.co/7xnDjH0y/5868555296949603780.jpg' },
+  { id: 4, name: 'صينية شبكه', price: 550, category: 'trays', image: 'https://i.ibb.co/PZwyBjXc/5868555296949603776.jpg' },
+  { id: 5, name: 'مراية قراية فتحه', price: 450, category: 'accessories', image: 'https://i.ibb.co/1JwhSCdH/5868555296949603784.jpg' },
+  { id: 6, name: 'مراية قرايه فتحه', price: 550, category: 'accessories', image: 'https://i.ibb.co/wZVJHNWF/5868555296949603787.jpg' }
+      { id: 7, name: ' بوكيه عدد 5 وردات ستان', price: 175, category: 'bouquets', image: 'https://i.ibb.co/7xJPv2xS/5868555296949603783.jpg' },
+    { id: 8, name: ' بوكيه عدد 25 وردات ستان', price: 875, category: 'bouquets', image: 'https://i.ibb.co/k2YPpfWv/5868555296949603786.jpg' },
+    { id: 9, name: ' بوكيه عدد 15 وردات ستان ولولي وفراشات', price: 625, category: 'bouquets', image: 'https://i.ibb.co/wTmLCdR/5868555296949603782.jpg' },
+    { id: 10, name: ' بوكيه عدد 15 وردات ستان', price: 525, category: 'bouquets', image: 'https://i.ibb.co/TDBZ4LS7/5868555296949603779.jpg' },
+    { id: 11, name: ' بوكيه عدد 25 وردات ستان', price: 875, category: 'bouquets', image: 'https://i.ibb.co/HDBKVbM1/5868555296949603777.jpg' },
+    { id: 12, name: ' بوكيه عدد 10 وردات ستان', price: 350, category: 'bouquets', image: 'https://i.ibb.co/CKwxt2Xk/5868555296949603775.jpg' },
+
 ];
 
 const DEFAULT_CONTACT = { wa: '201001234567', fb: 'https://facebook.com/lilyabrand', ig: 'https://instagram.com/lilyabrand', tt: '' };
