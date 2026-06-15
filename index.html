@@ -677,18 +677,18 @@ const ADMIN_PASSWORD = 'lilya2025';
 const STORAGE_KEY_PRODUCTS = 'lilya_products_v3';
 const STORAGE_KEY_CONTACT  = 'lilya_contact_v2';
 const DEFAULT_PRODUCTS = [
-  { id: 1, name: "ورد صناعي فاخر", price: 800, category: 'bouquets', image: '/images/p1.jpg' },
-  { id: 2, name: "بوكيه 8 وردات وفراشة", price: 310, category: 'bouquets', image: '/images/p2.jpg' },
-  { id: 3, name: "صينية عرض خاتم فاخرة", price: 550, category: 'trays', image: '/images/p3.jpg' },
-  { id: 4, name: "صينية شبكه مودرن", price: 550, category: 'trays', image: '/images/p4.jpg' },
-  { id: 5, name: "مراية قراية فاتحة دائرية", price: 450, category: 'accessories', image: '/images/p5.jpg' },
-  { id: 6, name: "مراية قراية فاتحة ذهبي", price: 450, category: 'accessories', image: '/images/p6.jpg' },
-  { id: 7, name: "بوكيه 5 وردات ستان", price: 175, category: 'bouquets', image: '/images/p7.jpg' },
-  { id: 8, name: "بوكيه 25 وردة ستان ملكي", price: 875, category: 'bouquets', image: '/images/p8.jpg' },
-  { id: 9, name: "بوكيه 15 وردة ستان ولولي وفراشات", price: 625, category: 'bouquets', image: '/images/p9.jpg' },
-  { id: 10, name: "بوكيه رقيق 15 وردة ستان", price: 525, category: 'bouquets', image: '/images/p10.jpg' },
-  { id: 11, name: "بوكيه كلاسيك 25 وردة ستان", price: 875, category: 'bouquets', image: '/images/p11.jpg' },
-  { id: 12, name: "بوكيه بسيط 10 وردات ستان", price: 350, category: 'bouquets', image: '/images/p12.jpg' }
+  { id: 1, name: "ورد صناعي فاخر", price: 800, category: 'bouquets', image: 'images/p1.jpg' },
+  { id: 2, name: "بوكيه 8 وردات وفراشة", price: 310, category: 'bouquets', image: 'images/p2.jpg' },
+  { id: 3, name: "صينية عرض خاتم فاخرة", price: 550, category: 'trays', image: 'images/p3.jpg' },
+  { id: 4, name: "صينية شبكه مودرن", price: 550, category: 'trays', image: 'images/p4.jpg' },
+  { id: 5, name: "مراية قراية فاتحة دائرية", price: 450, category: 'accessories', image: 'images/p5.jpg' },
+  { id: 6, name: "مراية قراية فاتحة ذهبي", price: 450, category: 'accessories', image: 'images/p6.jpg' },
+  { id: 7, name: "بوكيه 5 وردات ستان", price: 175, category: 'bouquets', image: 'images/p7.jpg' },
+  { id: 8, name: "بوكيه 25 وردة ستان ملكي", price: 875, category: 'bouquets', image: 'images/p8.jpg' },
+  { id: 9, name: "بوكيه 15 وردة ستان ولولي وفراشات", price: 625, category: 'bouquets', image: 'images/p9.jpg' },
+  { id: 10, name: "بوكيه رقيق 15 وردة ستان", price: 525, category: 'bouquets', image: 'images/p10.jpg' },
+  { id: 11, name: "بوكيه كلاسيك 25 وردة ستان", price: 875, category: 'bouquets', image: 'images/p11.jpg' },
+  { id: 12, name: "بوكيه بسيط 10 وردات ستان", price: 350, category: 'bouquets', image: 'images/p12.jpg' }
 ];
 const DEFAULT_CONTACT = { 
   wa: '201110489055', 
@@ -751,50 +751,68 @@ function renderProducts() {
   const emptyState = document.getElementById('emptyState');
   grid.innerHTML = '';
 
-  const filtered = activeFilter === 'all' ? products : products.filter(p => p.category === activeFilter);
+  const filtered = activeFilter === 'all' 
+    ? products 
+    : products.filter(p => p.category === activeFilter);
 
   if (filtered.length === 0) {
     emptyState.style.display = 'block';
     return;
+  } else {
+    emptyState.style.display = 'none';
   }
-  emptyState.style.display = 'none';
 
-  filtered.forEach(product => {
+  filtered.forEach(p => {
     const card = document.createElement('div');
     card.className = 'product-card fade-up';
     card.innerHTML = `
       <div class="product-img-wrap">
-        <img src="${product.image}" alt="${product.name}" loading="lazy">
+        <img src="${p.image}" alt="${p.name}">
+        <div class="product-badge">جديد</div>
         <div class="product-overlay">
-          <button class="overlay-btn">عرض التفاصيل</button>
+          <button class="overlay-btn">تفاصيل المنتج</button>
         </div>
       </div>
       <div class="product-info">
-        <h4 class="product-name">${product.name}</h4>
-        <p class="product-price">${product.price} جنيه</p>
+        <h3 class="product-name">${p.name}</h3>
+        <p class="product-price">${p.price} جنيه</p>
       </div>
     `;
-    card.addEventListener('click', () => openProductModal(product));
+    card.addEventListener('click', () => openModal(p));
     grid.appendChild(card);
   });
 }
 
-// عرض قائمة المنتجات داخل لوحة التحكم للحذف
+function openModal(product) {
+  const modal = document.getElementById('productModal');
+  document.getElementById('modalImage').src = product.image;
+  document.getElementById('modalName').textContent = product.name;
+  document.getElementById('modalPrice').textContent = `${product.price} جنيه`;
+  
+  const message = encodeURIComponent(`مرحباً Lilya Brand، أود الاستفسار عن منتج: ${product.name}`);
+  document.getElementById('modalWa').href = `https://wa.me/${contact.wa}?text=${message}`;
+  
+  modal.classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('productModal').classList.remove('open');
+}
+
 function renderAdminProducts() {
   const list = document.getElementById('adminProductsList');
   list.innerHTML = '';
-  
-  products.forEach(product => {
+  products.forEach(p => {
     const item = document.createElement('div');
     item.className = 'admin-product-item';
     item.innerHTML = `
-      <img src="${product.image}" alt="">
+      <img src="${p.image}" alt="">
       <div class="admin-product-info">
-        <div class="admin-product-name">${product.name}</div>
-        <div class="admin-product-price">${product.price} جنيه</div>
+        <div class="admin-product-name">${p.name}</div>
+        <div class="admin-product-price">${p.price} جنيه</div>
       </div>
       <div class="admin-product-actions">
-        <button class="btn-del" onclick="deleteProduct(${product.id})">حذف</button>
+        <button class="btn-del" onclick="deleteProduct(${p.id})"><i class="fa-solid fa-trash"></i></button>
       </div>
     `;
     list.appendChild(item);
@@ -806,28 +824,16 @@ window.deleteProduct = function(id) {
     products = products.filter(p => p.id !== id);
     saveProducts();
   }
-}
+};
 
-// النافذة المنبثقة للمنتج والطلب عبر الواتساب
-function openProductModal(product) {
-  document.getElementById('modalImage').src = product.image;
-  document.getElementById('modalName').textContent = product.name;
-  document.getElementById('modalPrice').textContent = `${product.price} جنيه`;
-  
-  const message = encodeURIComponent(`مرحباً Lilya Brand، أود الاستفسار عن منتج: ${product.name} بسعر ${product.price} جنيه.`);
-  document.getElementById('modalWa').href = `https://wa.me/${contact.wa}?text=${message}`;
-  
-  document.getElementById('productModal').classList.add('open');
-}
-
-// ===================== CANVA ANIMATION (PETALS) =====================
+// تأثير تساقط الورود التفاعلي
 function initPetals() {
   const canvas = document.getElementById('petalsCanvas');
+  if (!canvas) return;
   const ctx = canvas.getContext('2d');
-  
   let width = canvas.width = window.innerWidth;
   let height = canvas.height = window.innerHeight;
-  
+
   window.addEventListener('resize', () => {
     width = canvas.width = window.innerWidth;
     height = canvas.height = window.innerHeight;
@@ -835,106 +841,108 @@ function initPetals() {
 
   const petalCount = 25;
   const petals = [];
-  const icons = ['🌸', '🌹', '✨'];
-
   for (let i = 0; i < petalCount; i++) {
     petals.push({
       x: Math.random() * width,
       y: Math.random() * height - height,
-      size: Math.random() * 12 + 10,
-      speedX: Math.random() * 1.5 - 0.5,
-      speedY: Math.random() * 1 + 1,
-      icon: icons[Math.floor(Math.random() * icons.length)],
-      opacity: Math.random() * 0.5 + 0.3
+      r: Math.random() * 4 + 2,
+      d: Math.random() * petalCount,
+      xs: Math.random() * 1 + 0.5,
+      ys: Math.random() * 2 + 1
     });
   }
 
-  function animate() {
+  function draw() {
     ctx.clearRect(0, 0, width, height);
-    petals.forEach(p => {
-      p.y += p.speedY;
-      p.x += p.speedX;
-      
-      if (p.y > height) {
-        p.y = -20;
-        p.x = Math.random() * width;
+    ctx.fillStyle = 'rgba(242, 196, 206, 0.6)';
+    for (let i = 0; i < petalCount; i++) {
+      const p = petals[i];
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, true);
+      ctx.fill();
+
+      p.y += p.ys;
+      p.x += p.xs;
+
+      if (p.y > height || p.x > width) {
+        petals[i] = {
+          x: Math.random() * width,
+          y: -10,
+          r: p.r,
+          d: p.d,
+          xs: p.xs,
+          ys: p.ys
+        };
       }
-      
-      ctx.save();
-      ctx.globalAlpha = p.opacity;
-      ctx.font = `${p.size}px serif`;
-      ctx.fillText(p.icon, p.x, p.y);
-      ctx.restore();
-    });
-    requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(draw);
   }
-  animate();
+  draw();
 }
 
-// ===================== EVENTS INIT =====================
+// تشغيل عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', () => {
   loadFromStorage();
   renderProducts();
-  initPetals();
   updateContactLinks();
+  initPetals();
 
-  // تأثير تحرك النبار عند السكرول
+  // تأثير تحريك الـ Navbar عند النزول
   window.addEventListener('scroll', () => {
-    const navbar = document.getElementById('navbar');
+    const nav = document.getElementById('navbar');
     if (window.scrollY > 50) {
-      navbar.classList.add('scrolled');
+      nav.classList.add('scrolled');
     } else {
-      navbar.classList.remove('scrolled');
+      nav.classList.remove('scrolled');
     }
   });
 
-  // قائمة الموبايل (الهامبرغر)
+  // قائمة الموبايل (Hamburger Menu)
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.querySelector('.nav-links');
   hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('open');
   });
 
-  // إغلاق قائمة الموبايل عند الضغط على أي رابط
-  document.querySelectorAll('.nav-item').forEach(item => {
-    item.addEventListener('click', (e) => {
-      document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-      item.classList.add('active');
-      navLinks.classList.remove('open');
-    });
-  });
-
-  // فلاتر المتجر
+  // فلترة المنتجات من التابات
   document.querySelectorAll('.tab').forEach(tab => {
-    tab.addEventListener('click', () => {
+    tab.addEventListener('click', (e) => {
       document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      activeFilter = tab.getAttribute('data-filter');
+      e.target.classList.add('active');
+      activeFilter = e.target.getAttribute('data-filter');
       renderProducts();
     });
   });
 
-  // فلاتر كروت الأقسام السريعة
-  document.querySelectorAll('.cat-card .btn-outline').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const cat = btn.getAttribute('data-cat');
-      const targetTab = document.querySelector(`.tab[data-filter="${cat}"]`);
-      if(targetTab) targetTab.click();
+  // ربط الأقسام العلوية بفلتر المتجر
+  document.querySelectorAll('.cat-card .btn-outline, .cat-card').forEach(el => {
+    el.addEventListener('click', (e) => {
+      const cat = el.getAttribute('data-cat');
+      if(cat) {
+        activeFilter = cat;
+        const targetTab = document.querySelector(`.tab[data-filter="${cat}"]`);
+        if(targetTab) {
+          document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+          targetTab.classList.add('active');
+        }
+        renderProducts();
+      }
     });
   });
 
-  // إغلاق مودال المنتج
-  document.getElementById('modalClose').addEventListener('click', () => {
-    document.getElementById('productModal').classList.remove('open');
+  // إغلاق النافذة المنبثقة للمنتج
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+  document.getElementById('productModal').addEventListener('click', (e) => {
+    if(e.target.id === 'productModal') closeModal();
   });
 
   // فتح وإغلاق لوحة التحكم
-  document.getElementById('openAdmin').addEventListener('click', () => {
-    document.getElementById('adminOverlay').classList.add('open');
-  });
-  document.getElementById('closeAdmin').addEventListener('click', () => {
-    document.getElementById('adminOverlay').classList.remove('open');
-  });
+  const openAdminBtn = document.getElementById('openAdmin');
+  const closeAdminBtn = document.getElementById('closeAdmin');
+  const adminOverlay = document.getElementById('adminOverlay');
+
+  openAdminBtn.addEventListener('click', () => adminOverlay.classList.add('open'));
+  closeAdminBtn.addEventListener('click', () => adminOverlay.classList.remove('open'));
 
   // تسجيل الدخول للوحة التحكم
   document.getElementById('adminLoginBtn').addEventListener('click', () => {
@@ -942,32 +950,33 @@ document.addEventListener('DOMContentLoaded', () => {
     if (pass === ADMIN_PASSWORD) {
       document.getElementById('adminLogin').style.display = 'none';
       document.getElementById('adminContent').style.display = 'block';
-      document.getElementById('loginError').style.display = 'none';
       renderAdminProducts();
     } else {
       document.getElementById('loginError').style.display = 'block';
     }
   });
 
-  // التبديل بين تابات لوحة التحكم
+  // تابات لوحة التحكم
   document.querySelectorAll('.admin-tab').forEach(tab => {
-    tab.addEventListener('click', () => {
+    tab.addEventListener('click', (e) => {
       document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
       document.querySelectorAll('.admin-tab-content').forEach(c => c.classList.remove('active-tab'));
       
-      tab.classList.add('active');
-      document.getElementById(`tab-${tab.getAttribute('data-tab')}`).classList.add('active-tab');
+      e.target.classList.add('active');
+      const targetTab = e.target.getAttribute('data-tab');
+      document.getElementById(`tab-${targetTab}`).classList.add('active-tab');
     });
   });
 
-  // تحويل الصورة المرفوعة لقاعدة Base64 لعرضها وحفظها
-  document.getElementById('newImage').addEventListener('change', (e) => {
+  // معاينة الصورة المرفوعة في لوحة التحكم
+  const fileInput = document.getElementById('newImage');
+  fileInput.addEventListener('change', (e) => {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = (event) => {
         newImageBase64 = event.target.result;
-        document.getElementById('imagePreview').innerHTML = `<img src="${newImageBase64}" alt="Preview">`;
+        document.getElementById('imagePreview').innerHTML = `<img src="${newImageBase64}" />`;
       };
       reader.readAsDataURL(file);
     }
@@ -975,8 +984,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // إضافة منتج جديد
   document.getElementById('addProductBtn').addEventListener('click', () => {
-    const name = document.getElementById('newName').value.trim();
-    const price = parseFloat(document.getElementById('newPrice').value);
+    const name = document.getElementById('newName').value;
+    const price = document.getElementById('newPrice').value;
     const category = document.getElementById('newCategory').value;
 
     if (!name || !price || !newImageBase64) {
@@ -984,36 +993,35 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    const newProduct = {
+    const newProd = {
       id: Date.now(),
       name: name,
-      price: price,
+      price: parseFloat(price),
       category: category,
       image: newImageBase64
     };
 
-    products.push(newProduct);
+    products.push(newProd);
     saveProducts();
 
-    // إعادة تعيين الحقول
+    // تفريغ الحقول بعد الإضافة
     document.getElementById('newName').value = '';
     document.getElementById('newPrice').value = '';
     document.getElementById('imagePreview').innerHTML = '';
     newImageBase64 = '';
-    alert('تمت إضافة المنتج بنجاح! 🎉');
   });
 
-  // حفظ إعدادات التواصل
+  // حفظ بيانات التواصل
   document.getElementById('saveContactBtn').addEventListener('click', () => {
-    contact.wa = document.getElementById('waNumber').value.trim();
-    contact.fb = document.getElementById('fbLink').value.trim();
-    contact.ig = document.getElementById('igLink').value.trim();
-    contact.tt = document.getElementById('ttLink').value.trim();
+    contact.wa = document.getElementById('waNumber').value;
+    contact.fb = document.getElementById('fbLink').value;
+    contact.ig = document.getElementById('igLink').value;
+    contact.tt = document.getElementById('ttLink').value;
 
     saveContact();
-    const sMsg = document.getElementById('contactSuccess');
-    sMsg.style.display = 'block';
-    setTimeout(() => sMsg.style.display = 'none', 3000);
+    const successEl = document.getElementById('contactSuccess');
+    successEl.style.display = 'block';
+    setTimeout(() => successEl.style.display = 'none', 2000);
   });
 });
 </script>
